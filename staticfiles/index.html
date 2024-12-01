@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks Manager</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <h1 class="text-center">Bookmarks Manager</h1>
+            <span id="username-display"></span>
+            <button id="auth-button" class="btn btn-primary"></button>
+        </div>
+
+        <!-- Форма для добавления новой закладки -->
+        <h2 class="mt-4">Add New Bookmark</h2>
+        <form id="bookmark-form" class="form-group">
+            <input type="text" id="bookmark-url" class="form-control" placeholder="URL" required><br>
+            <input type="text" id="bookmark-title" class="form-control" placeholder="Title" required><br>
+            <select id="bookmark-category" class="form-control" required>
+                <option value="">Select a Category</option>
+            </select><br>
+            <button type="submit" class="btn btn-primary">Add Bookmark</button>
+        </form>
+
+        <!-- Фильтр по категориям -->
+        <h2 class="mt-4">Filter by Category</h2>
+        <select id="category-filter" class="form-control">
+            <option value="">All Categories</option>
+        </select>
+
+        <!-- Переключатель для избранных закладок -->
+        <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="favorite-filter">
+            <label class="form-check-label" for="favorite-filter">
+                Show only Favorites
+            </label>
+        </div>
+
+        <!-- Поиск закладок -->
+        <h2 class="mt-4">Search Bookmarks</h2>
+        <input type="text" id="search-input" class="form-control" placeholder="Search...">
+
+        <!-- Список закладок -->
+        <h2 class="mt-4">Your Bookmarks</h2>
+        <div id="bookmarks-list" class="mt-4">
+            <!-- Сюда будут добавляться закладки через JavaScript -->
+        </div>
+    </div>
+
+    <!-- Модальное окно для деталей закладки -->
+    <div class="modal fade" id="bookmarkDetailModal" tabindex="-1" role="dialog" aria-labelledby="bookmarkDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookmarkDetailModalLabel">Bookmark Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="bookmark-detail">
+                    <!-- Данные закладки будут загружены сюда -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
